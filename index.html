@@ -15,10 +15,10 @@
     <header class="header">
       <div class="container flex">
         <div class="header__logo">
-          <img class="bookmark-logo" src="assets/images/logo-bookmark.svg" alt="Bookmark Logo">
+          <a href=""><img class="bookmark-logo" src="assets/images/logo-bookmark.svg" alt="Bookmark Logo"></a>
         </div>
 
-        <button class="nav-toggle" aria-expanded="none">
+        <button class="nav-toggle" aria-expanded="false">
           <span class="sr-only">Menu</span>
         </button>
 
@@ -127,17 +127,62 @@
         <div class="container">
           <h2>Frequently Asked Questions</h2>
           <p>Here are some of our FAQs. If you have any other questions you'd like answered please feel free to email us.</p>
-          <div class="faq-dropdown-menu">
-            <!-- Learn How to Create a Dropdown Menu -->
+          <div class="faq-accordion">
+            <div class="accordion-item">
+              <button class="question flex">
+                <h3>What is Bookmark?</h3> 
+                <span>
+                  <img src="assets/images/icon-arrow.svg" alt="">
+                </span>
+              </button>
+              <div class="answer" data-visible="false">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare mattis.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="question flex">
+                <h3>How can I request a new browser?</h3> 
+                <span>
+                  <img src="assets/images/icon-arrow.svg" alt="">
+                </span>
+              </button>
+              <div class="answer" data-visible="false">
+                <p>Vivamus luctus eros aliquet convallis ultricies. Mauris augue massa, ultricies non ligula. Suspendisse imperdiet. Vivamus luctus eros aliquet convallis ultricies. Mauris augue massa, ultricies non ligula. Suspendisse imperdie tVivamus luctus eros aliquet convallis ultricies. Mauris augue massa, ultricies non ligula. Suspendisse imperdiet.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="question flex">
+                <h3>Is there a mobile app?</h3> 
+                <span>
+                  <img src="assets/images/icon-arrow.svg" alt="">
+                </span>
+              </button>
+              <div class="answer" data-visible="false">
+                <p>Sed consectetur quam id neque fermentum accumsan. Praesent luctus vestibulum dolor, ut condimentum urna vulputate eget. Cras in ligula quis est pharetra mattis sit amet pharetra purus. Sed sollicitudin ex et ultricies bibendum.</p>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="question flex">
+                <h3>What is Bookmark?</h3> 
+                <span>
+                  <img src="assets/images/icon-arrow.svg" alt="">
+                </span>
+              </button>
+              <div class="answer" data-visible="false">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt justo eget ultricies fringilla. Phasellus blandit ipsum quis quam ornare mattis.</p>
+              </div>
+            </div>
           </div>
+          <a href="" class="btn btn--blue btn--faq">More Info</a>
         </div>
       </section>
+
       <section class="contact">
         <div class="container">
           <p>35,000+ already joined</p>
           <h2>Stay up-to-date with what we're doing</h2>
-          <form class="contact-form">
-            <input class="contact-form__input" type="text" placeholder="Enter your enail address">
+          <form class="contact-form flex">
+            <input class="contact-form-input" type="email" placeholder="Enter your email address" required>
             <button class="btn" type="submit">Contact Us</button>
           </form>
         </div>
@@ -145,24 +190,24 @@
     </main>
 
     <footer class="footer">
-      <div class="container">
-        <div>
-          <div class="footer-logo">
-            <img class="footer__logo" src="assets/images/logo-bookmark.svg" alt="Bookmark Logo">
-            <nav class="footer__nav">
-              <li class="footer__nav__item">
-                <a class="footer__nav__link" href="">Features</a>
-              </li>
-              <li class="footer__nav__item">
-                <a class="footer__nav__link" href="">Pricing</a>
-              </li>
-              <li class="footer__nav__item">
-                <a class="footer__nav__link" href="">Contact</a>
-              </li>
-            </nav>
+      <div class="container flex">
+        <div class="footer-head flex">
+          <div class="footer__logo">
+            <a href=""><img class="footer-logo" src="assets/images/logo-bookmark(footer).svg" alt="Bookmark Logo"></a>
           </div>
+          <nav class="footer__nav flex">
+            <li class="footer__nav__item">
+              <a class="footer__nav__link" href="">Features</a>
+            </li>
+            <li class="footer__nav__item">
+              <a class="footer__nav__link" href="">Pricing</a>
+            </li>
+            <li class="footer__nav__item">
+              <a class="footer__nav__link" href="">Contact</a>
+            </li>
+            </nav>
         </div>
-        <div class="footer-icons">
+        <div class="footer-icons grid">
           <img src="assets/images/icon-facebook.svg" alt="">
           <img src="assets/images/icon-twitter.svg" alt="">
         </div>
