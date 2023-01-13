@@ -542,6 +542,10 @@ p {
   padding-block: .5rem 2rem;
 }
 
+.feature-head h3 {
+  cursor: pointer;
+}
+
 h3[data-visible="true"] {
   position: relative;
 }
@@ -729,7 +733,7 @@ h3[data-visible="true"]::after {
 }
 
 .contact-form {
-  --gap: 1rem;
+  --gap: .5rem;
   margin-inline: auto;
   justify-content: center;
 }
@@ -739,15 +743,12 @@ h3[data-visible="true"]::after {
   padding-block: .75rem;
   border: 0;
   border-radius: .25rem;
+  font-size: .8rem;
 }
 
 .contact-form-input:focus {
   outline: none;
   border: 0;
-}
-
-.contact-form-input:invalid {
-  border: 2px solid --soft-red;
 }
 
 .contact-form-input::placeholder {
