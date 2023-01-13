@@ -412,6 +412,7 @@ p {
 
 .btn--hero {
   font-size: 0.85rem;
+  padding-inline: 1rem;
 }
 
 .btn--hero:nth-child(1) {
