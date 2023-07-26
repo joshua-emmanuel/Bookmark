@@ -1,10 +1,9 @@
 const navToggle = document.querySelector(".nav-toggle");
 const nav = document.querySelector(".header__nav");
 const logo = document.querySelector(".bookmark-logo");
-const featureBtn = document.querySelectorAll(".feature-head h3");
-const featureImg = document.querySelector(".feature-img");
-const featureTitle = document.querySelector(".feature__text h2");
-const featureParagraph = document.querySelector(".feature__text p");
+const features = document.querySelector(".features");
+const featureTabs = Array.from(document.querySelectorAll(".feature__tab"));
+const featureTabContents = Array.from(document.querySelectorAll(".feature"));
 const question = document.querySelectorAll(".question");
 const answer = document.querySelectorAll(".answer");
 
@@ -22,38 +21,27 @@ navToggle.addEventListener("click",  () => {
     }
 });
 
-
-for (let i = 0; i < featureBtn.length; i++) {
-    if (i === 0) {
-        featureBtn[i].addEventListener("click", () => {
-            featureBtn[1].setAttribute("data-visible", false);
-            featureBtn[2].setAttribute("data-visible", false);
-            featureBtn[i].setAttribute("data-visible", true);
-            featureImg.src = "assets/images/illustration-features-tab-1.svg";
-            featureTitle.innerHTML = "Bookmark in one click";
-            featureParagraph.innerHTML = "Organize your bookmarks however you like. Our simple drag-and-drop interface gives you complete control over how you manage your favourite sites."
-        })
-    } if (i === 1) {
-        featureBtn[i].addEventListener("click", () => {
-            featureBtn[0].setAttribute("data-visible", false);
-            featureBtn[2].setAttribute("data-visible", false);
-            featureBtn[i].setAttribute("data-visible", true);
-            featureImg.src = "assets/images/illustration-features-tab-2.svg";
-            featureTitle.innerHTML = "Intelligent search";
-            featureParagraph.innerHTML = "Our powerful search feature will help you find saved sites in no time at all. No need to trawl through all of your bookmarks."
-        })
-    } if (i === 2) {
-        featureBtn[i].addEventListener("click", () => {
-            featureBtn[0].setAttribute("data-visible", false);
-            featureBtn[1].setAttribute("data-visible", false);
-            featureBtn[i].setAttribute("data-visible", true);
-            featureImg.src = "assets/images/illustration-features-tab-3.svg";
-            featureTitle.innerHTML = "Share your bookmarks";
-            featureParagraph.innerHTML = "Easily share your bookmarks and collections with others. Create a shareable link that you can send at the click of a button."
-        })
-    }
+function handleFeatureTabClick(event) {
+    const clickedTab = event.target.closest(".feature__tab");
+    // Unselect all tabs
+    featureTabs.forEach(featureTab => {
+        featureTab.setAttribute("aria-selected", false);
+    });
+    // Select clicked tab
+    clickedTab.setAttribute("aria-selected", true);
+    // Hide all tab Content
+    const { id: clickedTabId } = clickedTab;
+    featureTabContents.forEach(featureTabContent => {
+        featureTabContent.hidden = true;
+    });
+    // Show clicked tab content
+    const clickedTabContent = featureTabContents.find(featureTabContent => {
+        return featureTabContent.getAttribute("aria-labelledby") === clickedTabId;
+    });
+    clickedTabContent.hidden = false;
 }
 
+features.addEventListener("click", handleFeatureTabClick);
 
 for (let i = 0; i < question.length; i++) {
     question[i].addEventListener("click", () => {

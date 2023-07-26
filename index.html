@@ -70,17 +70,37 @@
           <h2 class="features__title">Features</h2>
           <p>Our aim is to make it quick and easy for you to access your favourite websites. Your bookmarks sync between your devices so you can access them on the go.</p>
           <div class="feature-head grid">
-            <h3 data-visible="true">Simple Bookmarking</h3>
-            <h3>Speedy Searching</h3>
-            <h3>Easy Sharing</h3>
+            <button id="simple-bookmarking" class="feature__tab" aria-selected="true">Simple Bookmarking</button>
+            <button id="speedy-searching" class="feature__tab">Speedy Searching</button>
+            <button id="easy-sharing" class="feature__tab">Easy Sharing</button>
           </div>
-          <article class="feature grid">
+          <article class="feature grid" aria-labelledby="simple-bookmarking">
             <div class="feature__img">
               <img class="feature-img" src="assets/images/illustration-features-tab-1.svg" alt="">
             </div>
             <div class="feature__text">
               <h2>Bookmark in One Click</h2>
               <p>Organize your bookmarks however you like. Our simple drag-and-drop interface gives you complete control over how you manage your favourite sites.</p>
+              <a href="" class="btn btn--blue">More Info</a>
+            </div>
+          </article>
+          <article class="feature grid" aria-labelledby="speedy-searching" hidden>
+            <div class="feature__img">
+              <img class="feature-img" src="assets/images/illustration-features-tab-2.svg" alt="">
+            </div>
+            <div class="feature__text">
+              <h2>Intelligent search</h2>
+              <p>Our powerful search feature will help you find saved sites in no time at all. No need to trawl through all of your bookmarks.</p>
+              <a href="" class="btn btn--blue">More Info</a>
+            </div>
+          </article>
+          <article class="feature grid" aria-labelledby="easy-sharing" hidden>
+            <div class="feature__img">
+              <img class="feature-img" src="assets/images/illustration-features-tab-3.svg" alt="">
+            </div>
+            <div class="feature__text">
+              <h2>Share your bookmarks</h2>
+              <p>Easily share your bookmarks and collections with others. Create a shareable link that you can send at the click of a button.</p>
               <a href="" class="btn btn--blue">More Info</a>
             </div>
           </article>
