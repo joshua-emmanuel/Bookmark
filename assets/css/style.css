@@ -141,7 +141,7 @@ html:focus-within {
   text-decoration: none;
   background-color: var(--btn-color);
   color: #fff;
-  border: 0;
+  border: 2px solid transparent;
   border-radius: .25rem;
   box-shadow: -1px 2px 4px -1px rgba(83,104,223,0.75);
   -webkit-box-shadow: -1px 2px 4px -1px rgba(83,104,223,0.75);
@@ -151,7 +151,7 @@ html:focus-within {
 
 .btn:hover {
   background: #fff;
-  border: 2px solid var(--btn-color);
+  border-color: var(--btn-color);
   color: var(--btn-color);
 }
 
