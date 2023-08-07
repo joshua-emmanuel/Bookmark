@@ -170,6 +170,7 @@ html:focus-within {
 
 html {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
