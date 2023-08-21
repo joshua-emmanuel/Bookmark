@@ -697,17 +697,13 @@ p {
 }
 
 .answer {
-  max-height: 0;
+  height: 0;
   overflow: hidden;
-  opacity: 0;
-  transition: all 350ms ease-in-out;
+  transition: height 250ms ease-in-out;
 }
 
-.answer[data-visible="true"] {
+.answer__inner {
   padding-top: 1rem;
-  max-height: 400px;
-  overflow: auto;
-  opacity: 1;
 }
 
 .btn--faq {

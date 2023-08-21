@@ -4,6 +4,7 @@ const logo = document.querySelector(".bookmark-logo");
 const features = document.querySelector(".features");
 const featureTabs = Array.from(document.querySelectorAll(".feature__tab"));
 const featureTabContents = Array.from(document.querySelectorAll(".feature"));
+const accordionContainer = document.querySelector(".faq-accordion");
 const question = document.querySelectorAll(".question");
 const answer = document.querySelectorAll(".answer");
 
@@ -43,13 +44,21 @@ function handleFeatureTabClick(event) {
 
 features.addEventListener("click", handleFeatureTabClick);
 
-for (let i = 0; i < question.length; i++) {
-    question[i].addEventListener("click", () => {
-        const visibility = answer[i].getAttribute("data-visible");
-        if (visibility === "false") {
-            answer[i].setAttribute("data-visible", true);
-        } else if (visibility === "true") {
-            answer[i].setAttribute("data-visible", false);
-        }
-    })
+function handleAccordionClick(event) {
+    const question = event.target.closest(".question");
+    if (!question) return;
+    const answer = question.nextElementSibling;
+    const answerInner = answer.children[0];
+    let height;
+    if (answer.getAttribute("data-visible") === "false") {
+        height = answerInner.getBoundingClientRect().height;
+        answer.setAttribute("data-visible", "true");
+    } else {
+        height = 0;
+        answer.setAttribute("data-visible", "false");
+    }
+
+    answer.style.height = `${height}px`;
 }
+
+accordionContainer.addEventListener("click", handleAccordionClick);
