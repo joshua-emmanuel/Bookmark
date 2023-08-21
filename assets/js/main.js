@@ -43,20 +43,20 @@ function handleFeatureTabClick(event) {
 features.addEventListener("click", handleFeatureTabClick);
 
 function handleAccordionClick(event) {
-    const question = event.target.closest(".question");
-    if (!question) return;
-    const answer = question.nextElementSibling;
-    const answerInner = answer.children[0];
+    const accordionHeader = event.target.closest(".accordion__header");
+    if (!accordionHeader) return;
+    const accordion = accordionHeader.parentElement;
+    const accordionContent = accordionHeader.nextElementSibling;
+    const accordionInner = accordionContent.children[0];
     let height;
-    if (answer.getAttribute("data-visible") === "false") {
-        height = answerInner.getBoundingClientRect().height;
-        answer.setAttribute("data-visible", "true");
-    } else {
+    if (accordion.classList.contains("is-open")) {
         height = 0;
-        answer.setAttribute("data-visible", "false");
+    } else {
+        height = accordionInner.getBoundingClientRect().height;
     }
-
-    answer.style.height = `${height}px`;
+    
+    accordion.classList.toggle("is-open");
+    accordionContent.style.height = `${height}px`;
 }
 
 accordionContainer.addEventListener("click", handleAccordionClick);

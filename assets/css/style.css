@@ -67,7 +67,7 @@ html:focus-within {
 
 :root {
   --soft-blue: hsl(231, 69%, 60%);
-  --soft-red: hsl(0, 94%, 66%);
+  --soft-red: rgb(250, 87, 87);
 
   --grayish-blue: hsl(229, 8%, 60%);
   --very-dark-blue: hsl(229, 31%, 21%);
@@ -669,13 +669,35 @@ p {
   padding-block: 1rem 2.5rem;
 } 
 
-.accordion-item {
+.accordion {
   border-bottom: 1px solid hsla(229, 8%, 60%, 0.2);
   padding-bottom: 1rem;
   margin-bottom: 1rem;
   text-align: left;
   max-width: 540px;
   margin-inline: auto;
+}
+
+.arrow-open {
+  display: none;
+}
+
+.accordion.is-open .arrow-open {
+  display: block;
+}
+
+.accordion.is-open .arrow-close {
+  display: none;
+}
+
+.accordion.is-open .question span {
+  color: #5267DF;
+  transition: transform 250ms ease-out;
+}
+
+.accordion.is-open .question span {
+  color: var(--soft-red);
+  transform: rotate(180deg);
 }
 
 .question {
@@ -699,7 +721,7 @@ p {
 .answer {
   height: 0;
   overflow: hidden;
-  transition: height 250ms ease-in-out;
+  transition: height 250ms ease-out;
 }
 
 .answer__inner {
