@@ -5,8 +5,6 @@ const features = document.querySelector(".features");
 const featureTabs = Array.from(document.querySelectorAll(".feature__tab"));
 const featureTabContents = Array.from(document.querySelectorAll(".feature"));
 const accordionContainer = document.querySelector(".faq-accordion");
-const question = document.querySelectorAll(".question");
-const answer = document.querySelectorAll(".answer");
 
 navToggle.addEventListener("click",  () => {
     const visibility = nav.getAttribute("data-visible");
