@@ -20,43 +20,60 @@ navToggle.addEventListener("click",  () => {
     }
 });
 
-function handleFeatureTabClick(event) {
-    const clickedTab = event.target.closest(".feature__tab");
-    // Unselect all tabs
-    featureTabs.forEach(featureTab => {
-        featureTab.setAttribute("aria-selected", false);
+const unselectAllTabs = (tabs) => {
+    tabs.forEach(tab => {
+        tab.setAttribute("aria-selected", false);
     });
-    // Select clicked tab
-    clickedTab.setAttribute("aria-selected", true);
-    // Hide all tab Content
+}
+
+const selectTab = (tab) => {
+    tab.setAttribute("aria-selected", true);
+}
+
+const hideAllTabContents = (tabContents) => {
+    tabContents.forEach(tabContent => {
+        tabContent.hidden = true;
+    });
+}
+
+const showClickedTabContent = (clickedTab, tabContents) => {
     const { id: clickedTabId } = clickedTab;
-    featureTabContents.forEach(featureTabContent => {
-        featureTabContent.hidden = true;
-    });
-    // Show clicked tab content
-    const clickedTabContent = featureTabContents.find(featureTabContent => {
-        return featureTabContent.getAttribute("aria-labelledby") === clickedTabId;
+    const clickedTabContent = tabContents.find(tabContent => {
+        return tabContent.getAttribute("aria-labelledby") === clickedTabId;
     });
     clickedTabContent.hidden = false;
 }
 
+const handleFeatureTabClick = (event) => {
+    const clickedTab = event.target.closest(".feature__tab");
+    unselectAllTabs(featureTabs);
+    selectTab(clickedTab);
+    hideAllTabContents(featureTabContents);
+    showClickedTabContent(clickedTab, featureTabContents);
+}
+
 features.addEventListener("click", handleFeatureTabClick);
 
-function handleAccordionClick(event) {
+const getAccordionContentHeight = (accordion) => {
+    const accordionInner = accordion.querySelector(".accordion__inner");
+    if (accordion.classList.contains("is-open")) {
+        return 0;
+    } 
+    return accordion.getBoundingClientRect().height;
+}
+
+const updateAccordion = (accordion, height) => {
+    const accordionContent = accordion.querySelector(".accordion__content");
+    accordion.classList.toggle("is-open");
+    accordionContent.style.height = `${height}px`;
+}
+
+const handleAccordionClick = (event) => {
     const accordionHeader = event.target.closest(".accordion__header");
     if (!accordionHeader) return;
     const accordion = accordionHeader.parentElement;
-    const accordionContent = accordionHeader.nextElementSibling;
-    const accordionInner = accordionContent.children[0];
-    let height;
-    if (accordion.classList.contains("is-open")) {
-        height = 0;
-    } else {
-        height = accordionInner.getBoundingClientRect().height;
-    }
-    
-    accordion.classList.toggle("is-open");
-    accordionContent.style.height = `${height}px`;
+    const height = getAccordionContentHeight(accordion);
+    updateAccordion(accordion, height);
 }
 
 accordionContainer.addEventListener("click", handleAccordionClick);
