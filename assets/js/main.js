@@ -59,7 +59,7 @@ const getAccordionContentHeight = (accordion) => {
     if (accordion.classList.contains("is-open")) {
         return 0;
     } 
-    return accordion.getBoundingClientRect().height;
+    return accordionInner.getBoundingClientRect().height;
 }
 
 const updateAccordion = (accordion, height) => {
